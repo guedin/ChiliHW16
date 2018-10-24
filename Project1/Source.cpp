@@ -101,6 +101,27 @@ int main()
 	std::cout << "<< Number Words to Digits >>" << std::endl;
 	{
 		// code goes here
+		std::vector<std::string> vWords;
+		auto cNambies = nambies;
+		std::string word = "";
+		for (std::string::iterator it = cNambies.begin(); it != cNambies.end(); ++it)
+		{
+			if (*it != ' ')
+			{
+				word.push_back(*it);
+			}
+			else
+			{
+				vWords.emplace_back(word);
+				word = "";
+			}
+		}
+		for (auto word : vWords)
+		{
+			std::find_if(numbers.begin(), numbers.end(),
+				[numbers](const std::string word)
+				{ return word == numbers.str; });
+		}
 	}
 	std::cout << "============================================" << std::endl << std::endl;
 
