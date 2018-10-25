@@ -118,10 +118,9 @@ int main()
 		}
 		for (auto word : vWords)
 		{
-			auto yo = std::find_if(
+			std::cout << (std::find_if(
 				numbers.begin(), numbers.end(),
-				[word](const Pube& p) { return word == p.str; });
-			std::cout << yo->num;
+				[word](const Pube& p) { return word == p.str; }))->num;
 		}
 		std::cout << std::endl;
 	}
@@ -133,6 +132,10 @@ int main()
 	std::cout << "<< Digits to Number Words >>" << std::endl;
 	{
 		// code goes here
+		auto sorted = numbers;
+		std::sort(sorted.begin(), sorted.end());
+		std::transform(numpies.begin(), numpies.end(), std::ostream_iterator<std::string>(std::cout, " "), [&sorted](int n) {return sorted[n].str; });
+		std::cout << std::endl;
 	}
 	std::cout << "============================================" << std::endl << std::endl;
 
