@@ -104,7 +104,7 @@ int main()
 		std::vector<std::string> vWords;
 		auto cNambies = nambies;
 		std::string word = "";
-		for (std::string::iterator it = cNambies.begin(); it != cNambies.end(); ++it)
+		for (std::string::iterator it = cNambies.begin(); it != cNambies.end(); it++)
 		{
 			if (*it != ' ')
 			{
@@ -116,6 +116,7 @@ int main()
 				word = "";
 			}
 		}
+		vWords.emplace_back(word);
 		for (auto word : vWords)
 		{
 			std::cout << (std::find_if(
@@ -145,6 +146,35 @@ int main()
 	std::cout << "<< Product >>" << std::endl;
 	{
 		// code goes here
+		std::vector<std::string> vWords;
+		auto cNambies = nambies;
+		std::string word = "";
+		for (std::string::iterator it = cNambies.begin(); it != cNambies.end(); ++it)
+		{
+			if (*it != ' ')
+			{
+				word.push_back(*it);
+			}
+			else
+			{
+				vWords.emplace_back(word);
+				word = "";
+			}
+		}
+		vWords.emplace_back(word);
+		std::vector<int> vNum;
+		for (auto const &word : vWords)
+		{
+			vNum.push_back((int)std::find_if(
+				numbers.begin(), numbers.end(),
+				[&word](const Pube& p) { return word == p.str; })->num);
+		}
+		int product = 1;
+		for (auto i : vNum)
+		{
+			product = product * i;
+		}
+		std::cout << product << std::endl;
 	}
 	std::cout << "============================================" << std::endl << std::endl;
 
