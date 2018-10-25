@@ -118,10 +118,12 @@ int main()
 		}
 		for (auto word : vWords)
 		{
-			std::find_if(numbers.begin(), numbers.end(),
-				[numbers](const std::string word)
-				{ return word == numbers.str; });
+			auto yo = std::find_if(
+				numbers.begin(), numbers.end(),
+				[word](const Pube& p) { return word == p.str; });
+			std::cout << yo->num;
 		}
+		std::cout << std::endl;
 	}
 	std::cout << "============================================" << std::endl << std::endl;
 
