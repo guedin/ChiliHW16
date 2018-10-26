@@ -170,6 +170,7 @@ int main()
 				[&word](const Pube& p) { return word == p.str; })->num);
 		}
 		int product = 1;
+
 		for (auto i : vNum)
 		{
 			product = product * i;
@@ -184,6 +185,12 @@ int main()
 	std::cout << "<< Parallel Sum >>" << std::endl;
 	{
 		// code goes here
+		int i = 0;
+		std::transform(memes.begin(), memes.end(), std::ostream_iterator<std::string>(std::cout, ", "), [&numbers, &i](Pube p) mutable {
+			auto result = std::to_string(int(p) + int(numbers[i]));
+			i++;
+			return result; });
+		std::cout << std::endl;
 	}
 	std::cout << "============================================" << std::endl << std::endl;
 
