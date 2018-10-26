@@ -30,6 +30,11 @@ struct Pube
 };
 
 // write your remove_erase_if template function here!
+template<typename T>
+void remove_erase_if(std::vector<T>& vec, bool op)
+{
+
+}
 
 // write your custom insertion operator here!
 class SortStr
@@ -199,7 +204,6 @@ int main()
 	// that will remove elements from vector based on unary predicate
 	// the following code should not be modified
 	std::cout << "<< Top Memes >>" << std::endl;
-	/*
 	{
 		// copy to get non-const vector
 		auto maymays = memes;
@@ -208,7 +212,6 @@ int main()
 		// output results
 		std::copy(maymays.begin(), maymays.end(), std::ostream_iterator<Pube>(std::cout, "\n"));
 	}
-	*/
 	std::cout << "============================================" << std::endl << std::endl;
 
 	std::cin.get();
