@@ -30,10 +30,11 @@ struct Pube
 };
 
 // write your remove_erase_if template function here!
-template<typename T>
-void remove_erase_if(std::vector<T>& vec, bool op)
+template<typename T, typename P>
+void remove_erase_if(T& con, P pred)
 {
-
+	const auto new_end = std::remove_if(con.begin(), con.end(), pred);
+	con.erase(new_end, con.end());
 }
 
 // write your custom insertion operator here!
@@ -210,7 +211,7 @@ int main()
 		// remove all memes with score below 3
 		remove_erase_if(maymays, [](const Pube& p) { return p.num < 3; });
 		// output results
-		std::copy(maymays.begin(), maymays.end(), std::ostream_iterator<Pube>(std::cout, "\n"));
+		std::copy(maymays.begin(), maymays.end(), std::ostream_iterator<Pube>(std::cout, "\n"));  
 	}
 	std::cout << "============================================" << std::endl << std::endl;
 
